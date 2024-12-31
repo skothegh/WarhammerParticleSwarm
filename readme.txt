@@ -139,46 +139,6 @@ This has the following advantages: 1. "Scout particles" move freely but are less
 likely to overshoot optimal position. 2. Once an optimum has been found all particles
 will slowly converge towards it, switching between "scout" and normal roles.
 
-5. Discussion
-It needs to be repeated that this is a meta-heuristic. That is, a procedure which
-makes no assumption about the concrete problem itself but still has reasonable
-chances of finding a global optimum.
-
-Furthermore, as long as the optimal points of the individual models aren't perfect
-multiples of each other, one will never find a point where each model has a cost
-of 0. The best one can hope to find is the point where one cannot make a model
-better without making another model worse.
-
-Furthermore, the code uses a stochastic process to estimate the win rates. Even if
-the points are perfect, there will always be fluctuation on the order of 1/N^2,
-as we the mean squared distance to the optimum.
-
-These points suggest, that the final cost the code converges towards is, at best,
-the a metric for the best possible balance that can be found, plus stochastic
-fluctuations. One should never expect the code to converge perfectly towards 0.
-
-This is aggravated by trying to fit models which are vastly more powerful than the rest,
-as it will drastically undervalue the lower point costs.
-
-Additionally, this is likely not the best approach to balancing the game.
-A more sensible (but less cool) way would try to estimate the point value of each
-pip in a given characteristic, i.e. how valuable is improving armour by one point,
-etc... ?
-
-This could then be used to estimate initial point values for good old hands-on
-playtesting.
-
-Last but not least and apropos playtesting. The game of 40k is usually played
-over 5 rounds and for victory points. These are gained by achieving some objectives in
-the game. There is also a melee phase, model abilities, aura abilities, equipment,
-tanks, anti-infantry-keywords (which terribly skew stats)...
-
-So are the points estimated even remotely close to the actual value of a model
-in-game? No. However, this was a fun exercise in numerical optimization and I learned
-quite a lot about gradient-less optimization (as well as why the original idea was
-already flawed).
-
-Thank you for your time and I hope you had some fun playing with the code.
 
 
 
