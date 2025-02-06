@@ -127,8 +127,6 @@ def SimulateRangedCombat(number_of_combats, model1, model2, points):
     return wins
 
 def DegreeOfMistrust(k,n,p):
-    # Function which is 0 at optimal point cost and maximum at least-optimal point costs
-    # Sums to 1 between 0 and n -> Probability distribuiton of 0-Hypothesis: "The point cost estimates are wrong."
     return (k-p*n)**4 / (0.2 * ( n**5 * p**5 + ( n-n*p )**5))
 
 def DegreeOfTrust(data,p):
